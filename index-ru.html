@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RUNA Импорт и Экспорт</title>
 <meta name="description" content="RUNA Import & Export — эфиопская торговая компания, экспортирующая бобовые премиум-класса (HPS) и семена кунжута, а также импортирующая промышленные химикаты на мировые рынки.">
-<meta name="keywords" content="экспорт эфиопских бобовых, семена кунжута Эфиопия, экспортер красной фасоли, бобы пинто HPS, импорт промышленных химикатов Эфиопия, каустическая сода, кальцинированная сода, лимонная кислота, торговая компания Аддис-Абеба">
 <link rel="alternate" hreflang="en" href="/">
 <link rel="alternate" hreflang="zh" href="/index-zh">
 <link rel="alternate" hreflang="hi" href="/index-hi">
@@ -38,7 +37,7 @@
   "url": "https://runaimportexport.com/"
 }
 </script>
-<!-- Google tag (gtag.js) - GA4. Replace G-W95YX91NXT with your real Measurement ID from GA4 Admin > Data Streams > Web -->
+<!-- Google tag (gtag.js) - GA4 (G-W95YX91NXT) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W95YX91NXT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -58,6 +57,12 @@
   --dark:#0F1A14;--mid:#4A5545;--soft:#8A9585;--border:#DDE5D8;
   --bg:#F7F9F5;--white:#FFFFFF;--cream:#FAF8F3;
   --teal-light:#D0EDED;--teal-mid:#A2D4D4;--teal-vivid:#4AABAB;--teal-soft:#EAF6F6;--teal-border:#B8DEDE;
+  --error-bg:#FEF0F0;--error-text:#C0392B;--error-border:#F5C5C5;
+  --accent-blue:#3B82F6;--accent-purple:#A855F7;
+  --why-green-bg1:#1A3A28;--why-green-bg2:#0F2318;--why-green-glow:var(--green-mid);--why-green-num:#7FD4A0;
+  --why-gold-bg1:#2A2010;--why-gold-bg2:#1A1408;--why-gold-glow:var(--gold);--why-gold-num:#F5C842;
+  --why-blue-bg1:#0F1E2E;--why-blue-bg2:#0A1220;--why-blue-glow:var(--accent-blue);--why-blue-num:#7CB9F4;
+  --why-purple-bg1:#221428;--why-purple-bg2:#150C1A;--why-purple-glow:var(--accent-purple);--why-purple-num:#C084FC;
   --font-display:'Cormorant Garamond',serif;
   --font-body:'DM Sans',sans-serif;
 }
@@ -78,7 +83,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--bg);line-he
 .nav-cta{background:var(--green);color:var(--white)!important;padding:10px 22px;border-radius:7px;font-size:13px;font-weight:500;letter-spacing:0.3px;transition:background .2s}
 .nav-cta:hover{background:var(--green-mid)!important}
 /* hamburger */
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;min-width:44px;min-height:44px;justify-content:center;align-items:center}
 .nav-hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
@@ -90,7 +95,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--bg);line-he
 .nav-drawer a:last-child{border-bottom:none;margin-top:16px;background:var(--green);color:var(--white)!important;padding:14px 20px;border-radius:8px;text-align:center;font-weight:500}
 /* language switcher */
 .lang-switch{position:relative}
-.lang-switch summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mid);padding:8px 12px;border:1px solid var(--border);border-radius:7px;user-select:none;transition:border-color .2s}
+.lang-switch summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mid);padding:8px 12px;border:1px solid var(--border);border-radius:7px;user-select:none;transition:border-color .2s;min-height:44px}
 .lang-switch summary::-webkit-details-marker{display:none}
 .lang-switch summary::marker{content:''}
 .lang-switch[open] summary,.lang-switch summary:hover{border-color:var(--teal-vivid)}
@@ -99,7 +104,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--bg);line-he
 .lang-menu a:hover{background:var(--teal-soft);color:var(--dark)}
 .lang-menu a.current{color:var(--green);font-weight:500}
 .nav-drawer .lang-row{display:flex;flex-wrap:wrap;gap:8px;padding:16px 0 4px;border-bottom:1px solid var(--border);margin-bottom:4px}
-.nav-drawer .lang-row a{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;color:var(--mid);text-decoration:none}
+.nav-drawer .lang-row a{border:1px solid var(--border);border-radius:6px;padding:11px 14px;font-size:12px;color:var(--mid);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:44px}
 .nav-drawer .lang-row a.current{background:var(--green);color:var(--white)!important;border-color:var(--green)}
 
 /* ── HERO ── */
@@ -211,7 +216,6 @@ section{padding:88px 48px}
 .chem-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
 .chem-card:hover .chem-img{transform:scale(1.06)}
 .chem-body{padding:22px 20px 20px;display:flex;flex-direction:column;flex:1}
-.chem-icon{display:none}
 .chem-name{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--white);margin-bottom:6px}
 .chem-badge{font-size:10px;color:rgba(200,146,42,.9);background:rgba(200,146,42,.12);padding:3px 10px;border-radius:5px;display:inline-block;margin-bottom:10px;font-weight:500}
 .chem-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;font-weight:500;flex:1;margin-bottom:18px}
@@ -254,14 +258,14 @@ section{padding:88px 48px}
 .t-both{background:linear-gradient(90deg,rgba(46,139,87,.9) 0%,rgba(74,171,171,.9) 100%);color:#fff;border:1px solid rgba(255,255,255,.25)}
 
 /* landmark photo backgrounds per country — Unsplash */
-.flag-india{background-image:url("https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80");background-size:cover;background-position:center}
-.flag-china{background-image:url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80");background-size:cover;background-position:center}
-.flag-bulgaria{background-image:url("https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80");background-size:cover;background-position:center}
-.flag-portugal{background-image:url("https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80");background-size:cover;background-position:center}
-.flag-turkey{background-image:url("https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80");background-size:cover;background-position:center}
-.flag-germany{background-image:url("https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80");background-size:cover;background-position:center}
-.flag-uae{background-image:url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80");background-size:cover;background-position:center}
-.flag-pakistan{background-image:url("https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80");background-size:cover;background-position:center}
+.flag-india{background-image:url("images/market-india.jpg");background-size:cover;background-position:center}
+.flag-china{background-image:url("images/market-china.jpg");background-size:cover;background-position:center}
+.flag-bulgaria{background-image:url("images/market-bulgaria.jpg");background-size:cover;background-position:center}
+.flag-portugal{background-image:url("images/market-portugal.jpg");background-size:cover;background-position:center}
+.flag-turkey{background-image:url("images/market-turkey.jpg");background-size:cover;background-position:center}
+.flag-germany{background-image:url("images/market-germany.jpg");background-size:cover;background-position:center}
+.flag-uae{background-image:url("images/market-uae.jpg");background-size:cover;background-position:center}
+.flag-pakistan{background-image:url("images/market-pakistan.jpg");background-size:cover;background-position:center}
 /* flag badge overlay in top-right corner */
 .mkt-flag-badge{position:absolute;top:12px;right:12px;font-size:26px;z-index:3;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
 
@@ -284,19 +288,19 @@ section{padding:88px 48px}
 }
 .why-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
 .why-card>*{position:relative;z-index:1}
-.why-card-1{background:linear-gradient(135deg,#1A3A28 0%,#0F2318 100%);border:1px solid rgba(46,139,87,.3)}
-.why-card-2{background:linear-gradient(135deg,#2A2010 0%,#1A1408 100%);border:1px solid rgba(200,146,42,.3)}
-.why-card-3{background:linear-gradient(135deg,#0F1E2E 0%,#0A1220 100%);border:1px solid rgba(59,130,246,.25)}
-.why-card-4{background:linear-gradient(135deg,#221428 0%,#150C1A 100%);border:1px solid rgba(168,85,247,.25)}
-.why-card-1:hover{border-color:rgba(46,139,87,.6);box-shadow:0 16px 48px rgba(46,139,87,.15)}
-.why-card-2:hover{border-color:rgba(200,146,42,.6);box-shadow:0 16px 48px rgba(200,146,42,.15)}
-.why-card-3:hover{border-color:rgba(59,130,246,.5);box-shadow:0 16px 48px rgba(59,130,246,.12)}
-.why-card-4:hover{border-color:rgba(168,85,247,.5);box-shadow:0 16px 48px rgba(168,85,247,.12)}
+.why-card-1{background:linear-gradient(135deg,var(--why-green-bg1) 0%,var(--why-green-bg2) 100%);border:1px solid color-mix(in srgb,var(--why-green-glow) 30%,transparent)}
+.why-card-2{background:linear-gradient(135deg,var(--why-gold-bg1) 0%,var(--why-gold-bg2) 100%);border:1px solid color-mix(in srgb,var(--why-gold-glow) 30%,transparent)}
+.why-card-3{background:linear-gradient(135deg,var(--why-blue-bg1) 0%,var(--why-blue-bg2) 100%);border:1px solid color-mix(in srgb,var(--why-blue-glow) 25%,transparent)}
+.why-card-4{background:linear-gradient(135deg,var(--why-purple-bg1) 0%,var(--why-purple-bg2) 100%);border:1px solid color-mix(in srgb,var(--why-purple-glow) 25%,transparent)}
+.why-card-1:hover{border-color:color-mix(in srgb,var(--why-green-glow) 60%,transparent);box-shadow:0 16px 48px color-mix(in srgb,var(--why-green-glow) 15%,transparent)}
+.why-card-2:hover{border-color:color-mix(in srgb,var(--why-gold-glow) 60%,transparent);box-shadow:0 16px 48px color-mix(in srgb,var(--why-gold-glow) 15%,transparent)}
+.why-card-3:hover{border-color:color-mix(in srgb,var(--why-blue-glow) 50%,transparent);box-shadow:0 16px 48px color-mix(in srgb,var(--why-blue-glow) 12%,transparent)}
+.why-card-4:hover{border-color:color-mix(in srgb,var(--why-purple-glow) 50%,transparent);box-shadow:0 16px 48px color-mix(in srgb,var(--why-purple-glow) 12%,transparent)}
 .why-num{font-family:var(--font-display);font-size:42px;font-weight:700;margin-bottom:10px;line-height:1}
-.why-card-1 .why-num{color:#7FD4A0}
-.why-card-2 .why-num{color:#F5C842}
-.why-card-3 .why-num{color:#7CB9F4}
-.why-card-4 .why-num{color:#C084FC}
+.why-card-1 .why-num{color:var(--why-green-num)}
+.why-card-2 .why-num{color:var(--why-gold-num)}
+.why-card-3 .why-num{color:var(--why-blue-num)}
+.why-card-4 .why-num{color:var(--why-purple-num)}
 .why-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:8px;letter-spacing:.2px}
 .why-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:500}
 
@@ -332,7 +336,7 @@ section{padding:88px 48px}
 .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .form-status{padding:12px 16px;border-radius:8px;font-size:13px;font-weight:500;display:none}
 .form-status.success{background:#E8F4EC;color:var(--green);border:1px solid #B8D9C4;display:block}
-.form-status.error{background:#FEF0F0;color:#C0392B;border:1px solid #F5C5C5;display:block}
+.form-status.error{background:var(--error-bg);color:var(--error-text);border:1px solid var(--error-border);display:block}
 
 /* ── FOOTER ── */
 footer{background:var(--green);color:rgba(255,255,255,.68);padding:60px 48px 36px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:52px}
@@ -350,7 +354,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 .modal-overlay.open{display:flex}
 .modal{background:var(--white);border-radius:16px;padding:36px;max-width:480px;width:100%;position:relative;animation:modal-in .25s ease}
 @keyframes modal-in{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.modal-close{position:absolute;top:16px;right:16px;background:var(--teal-soft);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--mid);transition:background .2s}
+.modal-close{position:absolute;top:8px;right:8px;background:var(--teal-soft);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--mid);transition:background .2s}
 .modal-close:hover{background:var(--border)}
 .modal h3{font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--dark);margin-bottom:6px}
 .modal .modal-product{font-size:13px;color:var(--gold);font-weight:500;margin-bottom:20px;letter-spacing:.5px}
@@ -466,9 +470,9 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
     <a href="/index-zh">中文</a>
     <a href="/index-hi">हिंदी</a>
     <a href="/index-ur">اردو</a>
-    <a href="/index-tr">TR</a>
+    <a href="/index-tr">Türkçe</a>
     <a href="/index-ar">عربي</a>
-    <a class="current" href="/index-ru">RU</a>
+    <a class="current" href="/index-ru">Русский</a>
   </div>
   <a href="#about" onclick="return openPanel('about')">About</a>
   <a href="#products" onclick="return openPanel('products')">Products</a>
@@ -788,42 +792,42 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-india"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇮🇳</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">India</h3><div class="mkt-prods">Pulses, sesame · Industrial chemicals</div><span class="mkt-type t-both">Export &amp; Import</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">India</h3><div class="mkt-prods">Pulses, sesame · Industrial chemicals</div><span class="mkt-type t-both">Export &amp; Import</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-china"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇨🇳</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">China</h3><div class="mkt-prods">Sesame, lentils · Industrial chemicals</div><span class="mkt-type t-both">Export &amp; Import</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">China</h3><div class="mkt-prods">Sesame, lentils · Industrial chemicals</div><span class="mkt-type t-both">Export &amp; Import</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-bulgaria"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇧🇬</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">Bulgaria</h3><div class="mkt-prods">Kidney beans, pinto beans</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">Bulgaria</h3><div class="mkt-prods">Kidney beans, pinto beans</div><span class="mkt-type t-export">Export</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-turkey"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇹🇷</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">Turkey</h3><div class="mkt-prods">Pinto beans, sesame</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">Turkey</h3><div class="mkt-prods">Pinto beans, sesame</div><span class="mkt-type t-export">Export</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-germany"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇩🇪</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">Germany</h3><div class="mkt-prods">Organic pulses</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">Germany</h3><div class="mkt-prods">Organic pulses</div><span class="mkt-type t-export">Export</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-uae"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇦🇪</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">UAE</h3><div class="mkt-prods">Beans, lentils</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">UAE</h3><div class="mkt-prods">Beans, lentils</div><span class="mkt-type t-export">Export</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-portugal"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇵🇹</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">Portugal</h3><div class="mkt-prods">White pea beans, sesame</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">Portugal</h3><div class="mkt-prods">White pea beans, sesame</div><span class="mkt-type t-export">Export</span></div>
     </div>
     <div class="mkt-card">
       <div class="mkt-flag-bg flag-pakistan"></div><div class="mkt-overlay"></div>
       <div class="mkt-flag-badge">🇵🇰</div>
-      <div class="mkt-content"><div class="mkt-emoji" style="visibility:hidden;height:0;margin:0;padding:0"></div><h3 class="mkt-name">Pakistan</h3><div class="mkt-prods">Pulses, kidney beans</div><span class="mkt-type t-export">Export</span></div>
+      <div class="mkt-content"><h3 class="mkt-name">Pakistan</h3><div class="mkt-prods">Pulses, kidney beans</div><span class="mkt-type t-export">Export</span></div>
     </div>
   </div>
 </section>
@@ -953,7 +957,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
     </ul>
   </div>
   <div class="ft-bottom">
-    <span>© 2026 RUNA Import &amp; Export ·All rights reserved. Reg. No. 1892086/2014</span>
+    <span>© 2026 RUNA Import &amp; Export · All rights reserved. Reg. No. 1892086/2014</span>
     <span id="estClock" style="display:flex;align-items:center;gap:7px">
       <span style="width:7px;height:7px;border-radius:50%;background:#2E8B57;display:inline-block;animation:blink 2s infinite;flex-shrink:0"></span>
       <span id="estTime">Addis Ababa — loading...</span>
