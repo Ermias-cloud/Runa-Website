@@ -111,7 +111,7 @@ body{font-family:var(--font-body);color:var(--dark);background:var(--bg);line-he
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
 .hero h1{font-family:var(--font-display);font-size:58px;font-weight:700;line-height:1.1;color:var(--white);margin-bottom:22px;letter-spacing:-.5px}
 .hero h1 em{color:#7FD4A0;font-style:italic}
-.hero-p{font-size:16px;color:rgba(255,255,255,.72);margin-bottom:40px;line-height:1.8;max-width:440px;font-weight:500}
+.hero-p{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:40px;line-height:1.8;max-width:440px;font-weight:500}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
 .btn-primary{background:var(--green-mid);color:var(--white);padding:14px 28px;border-radius:8px;font-size:14px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:9px;transition:all .2s;letter-spacing:.3px;border:none;cursor:pointer}
 .btn-primary:hover{background:#3aad6d;transform:translateY(-1px)}
@@ -324,6 +324,7 @@ section{padding:88px 48px}
 .form-group label{font-size:12px;font-weight:500;color:var(--mid);letter-spacing:.3px}
 .form-group input,.form-group select,.form-group textarea{border:1px solid var(--teal-border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:var(--font-body);color:var(--dark);background:var(--teal-soft);outline:none;transition:border-color .2s}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal-vivid);background:var(--white)}
+.form-group input:focus-visible,.form-group select:focus-visible,.form-group textarea:focus-visible{outline:2px solid var(--teal-vivid);outline-offset:2px}
 .form-group textarea{resize:vertical;min-height:110px}
 .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%238A9585' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
 .form-submit{background:var(--green);color:var(--white);padding:14px 28px;border-radius:8px;font-size:14px;font-family:var(--font-body);font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .2s;letter-spacing:.3px;width:100%}
@@ -357,6 +358,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 .modal-form .form-group label{font-size:12px;font-weight:500;color:var(--mid)}
 .modal-form .form-group input,.modal-form .form-group textarea{border:1px solid var(--teal-border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:var(--font-body);color:var(--dark);background:var(--teal-soft);outline:none;transition:border-color .2s;width:100%}
 .modal-form .form-group input:focus,.modal-form .form-group textarea:focus{border-color:var(--green);background:var(--white)}
+.modal-form .form-group input:focus-visible,.modal-form .form-group textarea:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
 /* ── QUICK CONTACT BAR (always visible, outside accordion) ── */
 .quick-contact-bar{display:flex;align-items:center;gap:22px;justify-content:center;flex-wrap:wrap;background:var(--green);padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -409,6 +411,10 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
   .dashboard-section{padding:40px 24px 0}
   .dash-grid{grid-template-columns:1fr 1fr}
 }
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
 @media(max-width:560px){
   .products-grid,.chem-grid{grid-template-columns:1fr!important}
   .markets-grid{grid-template-columns:1fr 1fr}
@@ -429,7 +435,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 <!-- NAV -->
 <nav class="nav">
   <a class="logo" href="#">
-    <img src="images/logo-nav.jpg" class="nav-logo-img">
+    <img src="images/logo-nav.jpg" class="nav-logo-img" alt="RUNA Import &amp; Export">
   </a>
   <div class="nav-links">
     <a href="#about" onclick="return openPanel('about')">About</a>
@@ -512,32 +518,32 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 <!-- DASHBOARD / CONTROL PANEL -->
 <section class="dashboard-section" id="dashboard">
   <div class="dash-grid">
-    <button class="dash-card" data-panel="about" onclick="togglePanel('about')">
+    <button class="dash-card" data-panel="about" aria-expanded="false" aria-controls="panel-about" onclick="togglePanel('about')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-building-store"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">About</div>
       <div class="dash-teaser">Your trusted trade partner — Ethiopian quality meets global demand.</div>
     </button>
-    <button class="dash-card" data-panel="products" onclick="togglePanel('products')">
+    <button class="dash-card" data-panel="products" aria-expanded="false" aria-controls="panel-products" onclick="togglePanel('products')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-box"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">Products</div>
       <div class="dash-teaser">Premium pulses &amp; sesame exports, plus industrial chemical imports.</div>
     </button>
-    <button class="dash-card" data-panel="markets" onclick="togglePanel('markets')">
+    <button class="dash-card" data-panel="markets" aria-expanded="false" aria-controls="panel-markets" onclick="togglePanel('markets')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-world"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">Markets</div>
       <div class="dash-teaser">Shipping to 8+ countries across Asia, Europe &amp; the Middle East.</div>
     </button>
-    <button class="dash-card" data-panel="why" onclick="togglePanel('why')">
+    <button class="dash-card" data-panel="why" aria-expanded="false" aria-controls="panel-why" onclick="togglePanel('why')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-award"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">Why Us</div>
       <div class="dash-teaser">Direct sourcing, certified quality, and end-to-end logistics support.</div>
     </button>
-    <button class="dash-card" data-panel="trust" onclick="togglePanel('trust')">
+    <button class="dash-card" data-panel="trust" aria-expanded="false" aria-controls="panel-trust" onclick="togglePanel('trust')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-certificate"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">Credentials</div>
       <div class="dash-teaser">Registered, certified, and fully documented for every shipment.</div>
     </button>
-    <button class="dash-card" data-panel="contact" onclick="togglePanel('contact')">
+    <button class="dash-card" data-panel="contact" aria-expanded="false" aria-controls="panel-contact" onclick="togglePanel('contact')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-mail"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">Contact</div>
       <div class="dash-teaser">Send an inquiry and hear back from our Addis Ababa team within 24 hours.</div>
@@ -594,7 +600,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
   <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:36px">
     <h2 class="sec-label" style="margin-bottom:0;color:var(--gold)">Credentials &amp; compliance</h2>
     <div style="width:1px;height:14px;background:rgba(255,255,255,.15)"></div>
-    <span style="font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.5px">Reg. No. 1892086/2014 · Ministry of Trade &amp; Industry, Ethiopia</span>
+    <span style="font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.5px">Reg. No. 1892086/2014 · Ministry of Trade &amp; Industry, Ethiopia</span>
   </div>
   <div class="trust-grid">
     <div class="trust-card">
@@ -639,12 +645,12 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
   <div class="sec-label">Продукция и услуги</div>
   <h2 class="sec-title">Чем мы торгуем</h2>
   <div class="sec-sub">RUNA operates across two core business lines — exporting premium Ethiopian pulses &amp; sesame seeds, and importing industrial chemicals essential to Ethiopian manufacturing.</div>
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('exports',this)">🌱 Exports — Pulses &amp; Seeds</button>
-    <button class="tab" onclick="switchTab('chemicals',this)">🔵 Imports — Chemicals</button>
+  <div class="tabs" role="tablist" aria-label="Product categories">
+    <button class="tab active" role="tab" id="tabbtn-exports" aria-selected="true" aria-controls="tab-exports" onclick="switchTab('exports',this)">🌱 Exports — Pulses &amp; Seeds</button>
+    <button class="tab" role="tab" id="tabbtn-chemicals" aria-selected="false" aria-controls="tab-chemicals" onclick="switchTab('chemicals',this)">🔵 Imports — Chemicals</button>
   </div>
 
-  <div id="tab-exports" class="tab-content active products-grid">
+  <div id="tab-exports" class="tab-content active products-grid" role="tabpanel" aria-labelledby="tabbtn-exports">
     <div class="product-card">
       <div class="product-img-wrap"><img src="images/product-pinto-beans.jpg" alt="Pinto Beans HPS" class="product-img" loading="lazy"></div>
       <div class="product-body">
@@ -719,7 +725,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
     </div>
   </div>
 
-  <div id="tab-chemicals" class="tab-content chem-grid">
+  <div id="tab-chemicals" class="tab-content chem-grid" role="tabpanel" aria-labelledby="tabbtn-chemicals">
     <div class="chem-card">
       <div class="chem-img-wrap"><img class="chem-img" src="images/chem-caustic-soda.jpg" alt="Caustic Soda" loading="lazy"></div>
       <div class="chem-body">
@@ -877,18 +883,18 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
     <div class="contact-form" id="contactFormWrap">
       <h3>Send an inquiry</h3>
       <p class="form-sub">Fill in the form and we'll reply within 24 hours.</p>
-      <div id="formStatus" class="form-status"></div>
+      <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
       <form id="inquiryForm" action="https://formspree.io/f/xlgyzekw" method="POST">
       <div class="form-row">
-        <div class="form-group"><label>Full name *</label><input type="text" id="cf-name" name="name" placeholder="Your full name" required></div>
-        <div class="form-group"><label>Company</label><input type="text" id="cf-company" name="company" placeholder="Company name"></div>
+        <div class="form-group"><label for="cf-name">Full name *</label><input type="text" id="cf-name" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><label for="cf-company">Company</label><input type="text" id="cf-company" name="company" placeholder="Company name"></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Email *</label><input type="email" id="cf-email" name="email" placeholder="your@email.com" required></div>
-        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="cf-phone" name="phone" placeholder="+1 555 000 0000"></div>
+        <div class="form-group"><label for="cf-email">Email *</label><input type="email" id="cf-email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><label for="cf-phone">Phone / WhatsApp</label><input type="tel" id="cf-phone" name="phone" placeholder="+1 555 000 0000"></div>
       </div>
       <div class="form-group">
-        <label>Product of interest *</label>
+        <label for="cf-product">Product of interest *</label>
         <select id="cf-product" name="product" required>
           <option value="">— Select a product —</option>
           <optgroup label="Exports — Pulses &amp; Seeds">
@@ -909,8 +915,8 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
           </optgroup>
         </select>
       </div>
-      <div class="form-group"><label>Estimated quantity &amp; packaging</label><input type="text" id="cf-qty" name="quantity" placeholder="e.g. 25 MT, 50 kg bags"></div>
-      <div class="form-group"><label>Message</label><textarea id="cf-message" name="message" placeholder="Tell us about your requirements, destination port, or any other details..."></textarea></div>
+      <div class="form-group"><label for="cf-qty">Estimated quantity &amp; packaging</label><input type="text" id="cf-qty" name="quantity" placeholder="e.g. 25 MT, 50 kg bags"></div>
+      <div class="form-group"><label for="cf-message">Message</label><textarea id="cf-message" name="message" placeholder="Tell us about your requirements, destination port, or any other details..."></textarea></div>
       <button class="form-submit" id="formBtn" type="submit">
         <i class="ti ti-send"></i><span id="formBtnText">Send Inquiry</span>
       </button>
@@ -957,16 +963,16 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 
 <!-- INQUIRY MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()"><i class="ti ti-x"></i></button>
-    <h3>Request a Quote</h3>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close dialog"><i class="ti ti-x"></i></button>
+    <h3 id="modalTitle">Request a Quote</h3>
     <div class="modal-product" id="modalProductName"></div>
-    <div id="modalStatus" class="form-status" style="margin-bottom:10px"></div>
+    <div id="modalStatus" class="form-status" style="margin-bottom:10px" role="status" aria-live="polite"></div>
     <div class="modal-form">
-      <div class="form-group"><label>Full name *</label><input type="text" id="mf-name" placeholder="Your full name"></div>
-      <div class="form-group"><label>Email *</label><input type="email" id="mf-email" placeholder="your@email.com"></div>
-      <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="mf-phone" placeholder="+1 555 000 0000"></div>
-      <div class="form-group"><label>Quantity &amp; message</label><textarea id="mf-message" placeholder="Quantity needed, packaging, destination port..." style="min-height:90px"></textarea></div>
+      <div class="form-group"><label for="mf-name">Full name *</label><input type="text" id="mf-name" placeholder="Your full name"></div>
+      <div class="form-group"><label for="mf-email">Email *</label><input type="email" id="mf-email" placeholder="your@email.com"></div>
+      <div class="form-group"><label for="mf-phone">Phone / WhatsApp</label><input type="tel" id="mf-phone" placeholder="+1 555 000 0000"></div>
+      <div class="form-group"><label for="mf-message">Quantity &amp; message</label><textarea id="mf-message" placeholder="Quantity needed, packaging, destination port..." style="min-height:90px"></textarea></div>
       <button class="form-submit" id="modalBtn" onclick="submitModal()">
         <i class="ti ti-send"></i><span id="modalBtnText">Send Request</span>
       </button>
@@ -992,11 +998,11 @@ function closeNav(){
 /* ── DASHBOARD ACCORDION ── */
 function openPanel(name){
   document.querySelectorAll('.accordion-panel').forEach(p=>p.classList.remove('open'));
-  document.querySelectorAll('.dash-card').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.dash-card').forEach(c=>{c.classList.remove('active');c.setAttribute('aria-expanded','false');});
   const panel=document.getElementById('panel-'+name);
   const card=document.querySelector('.dash-card[data-panel="'+name+'"]');
   if(panel)panel.classList.add('open');
-  if(card)card.classList.add('active');
+  if(card){card.classList.add('active');card.setAttribute('aria-expanded','true');}
   closeNav();
   setTimeout(()=>{
     (card||panel)?.scrollIntoView({behavior:'smooth',block:'start'});
@@ -1007,7 +1013,9 @@ function togglePanel(name){
   const panel=document.getElementById('panel-'+name);
   if(panel && panel.classList.contains('open')){
     panel.classList.remove('open');
-    document.querySelector('.dash-card[data-panel="'+name+'"]').classList.remove('active');
+    const card=document.querySelector('.dash-card[data-panel="'+name+'"]');
+    card.classList.remove('active');
+    card.setAttribute('aria-expanded','false');
     return;
   }
   openPanel(name);
@@ -1015,13 +1023,28 @@ function togglePanel(name){
 
 /* ── TABS ── */
 function switchTab(name,btn){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
   document.getElementById('tab-'+name).classList.add('active');
 }
 
 /* ── MODAL ── */
+let modalLastFocused=null;
+function getModalFocusable(){
+  return Array.from(document.querySelector('.modal').querySelectorAll('input,textarea,button')).filter(el=>!el.disabled);
+}
+function modalKeydown(e){
+  if(e.key==='Escape'){closeModal();return;}
+  if(e.key==='Tab'){
+    const focusable=getModalFocusable();
+    if(!focusable.length)return;
+    const first=focusable[0],last=focusable[focusable.length-1];
+    if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+  }
+}
 function openInquiry(product){
   document.getElementById('modalProductName').textContent=product;
   document.getElementById('mf-name').value='';
@@ -1035,30 +1058,19 @@ function openInquiry(product){
   // pre-fill contact form product
   const sel=document.getElementById('cf-product');
   for(let i=0;i<sel.options.length;i++){if(sel.options[i].value===product){sel.selectedIndex=i;break;}}
+  modalLastFocused=document.activeElement;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
+  document.addEventListener('keydown',modalKeydown);
+  document.getElementById('mf-name').focus();
 }
 function closeModal(){
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow='';
+  document.removeEventListener('keydown',modalKeydown);
+  if(modalLastFocused)modalLastFocused.focus();
 }
 function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
-
-/* ── EMAIL via mailto fallback (opens email client) ── */
-/* For a live site, replace with a backend endpoint or EmailJS */
-function buildMailto(data){
-  const sub=encodeURIComponent('RUNA Inquiry: '+data.product);
-  const body=encodeURIComponent(
-    'Name: '+data.name+'\n'+
-    'Company: '+(data.company||'—')+'\n'+
-    'Email: '+data.email+'\n'+
-    'Phone: '+(data.phone||'—')+'\n'+
-    'Product: '+data.product+'\n'+
-    'Quantity: '+(data.qty||'—')+'\n\n'+
-    'Message:\n'+(data.message||'—')
-  );
-  return 'mailto:info@runaimportexport.com?subject='+sub+'&body='+body;
-}
 
 function submitForm(e){
   e.preventDefault();
@@ -1134,14 +1146,32 @@ function submitModal(){
     message:document.getElementById('mf-message').value.trim()
   };
   btn.disabled=true;
-  document.getElementById('modalBtnText').textContent='Opening email client...';
-  window.location.href=buildMailto(data);
-  setTimeout(()=>{
-    status.className='form-status success';
-    status.textContent='✓ Your email client opened. Hit Send to complete. Or email info@runaimportexport.com directly.';
-    btn.disabled=false;
-    document.getElementById('modalBtnText').textContent='Send Request';
-  },1200);
+  document.getElementById('modalBtnText').textContent='Sending...';
+  fetch('https://formspree.io/f/xlgyzekw',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      name:data.name,
+      email:data.email,
+      phone:data.phone||'—',
+      product:data.product,
+      message:data.message||'—',
+      _subject:'RUNA Inquiry: '+data.product
+    })
+  })
+    .then(res=>{
+      if(!res.ok) throw new Error('Formspree error');
+      status.className='form-status success';
+      status.textContent='✓ Thank you — your inquiry has been sent. We will reply within 24 hours.';
+    })
+    .catch(()=>{
+      status.className='form-status error';
+      status.textContent='Something went wrong sending your request. Please try again, or email us directly at info@runaimportexport.com.';
+    })
+    .finally(()=>{
+      btn.disabled=false;
+      document.getElementById('modalBtnText').textContent='Send Request';
+    });
 }
 </script>
 </body>
