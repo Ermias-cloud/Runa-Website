@@ -206,8 +206,6 @@ section{padding:88px 48px}
 .product-cta{display:flex;gap:8px;margin-top:auto}
 .btn-card-primary{background:var(--green-mid);color:var(--white);padding:9px 16px;border-radius:7px;font-size:12px;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:background .2s;border:none;cursor:pointer;font-family:var(--font-body)}
 .btn-card-primary:hover{background:#3aad6d}
-.btn-card-ghost{background:transparent;color:rgba(255,255,255,.6);padding:9px 14px;border-radius:7px;font-size:12px;text-decoration:none;font-weight:500;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;gap:6px;transition:all .2s;cursor:pointer;font-family:var(--font-body)}
-.btn-card-ghost:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
 /* chemicals */
 .chem-grid{grid-template-columns:repeat(3,1fr);gap:20px}
 .chem-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
@@ -495,7 +493,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
   </div>
   <div class="hero-right">
     <div class="stats-cluster">
-      <div class="stat-box accent"><div class="n">10+</div><div class="l">全球出口市场</div></div>
+      <div class="stat-box accent"><div class="n">8+</div><div class="l">全球出口市场</div></div>
       <div class="stat-box dark"><div class="n">6+</div><div class="l">优质出口产品</div></div>
       <div class="stat-box dark"><div class="n">5+</div><div class="l">进口品类</div></div>
       <div class="stat-box dark"><div class="n">3+</div><div class="l">原产国</div></div>
@@ -516,13 +514,14 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
   <a href="mailto:info@runaimportexport.com"><i class="ti ti-mail"></i>info@runaimportexport.com</a>
   <a href="https://wa.me/251944189191"><i class="ti ti-brand-whatsapp"></i>+251 944 189 191</a>
   <a href="tel:+251911467861"><i class="ti ti-phone"></i>+251 911 467 861</a>
+  <a href="#trust" onclick="return openPanel('trust')"><i class="ti ti-certificate"></i>Reg. No. 1892086/2014</a>
   <a href="#contact" class="qc-cta" onclick="return openPanel('contact')"><i class="ti ti-send"></i>Get in touch</a>
 </div>
 
 <!-- DASHBOARD / CONTROL PANEL -->
 <section class="dashboard-section" id="dashboard">
   <div class="dash-grid">
-    <button class="dash-card" data-panel="about" aria-expanded="false" aria-controls="panel-about" onclick="togglePanel('about')">
+    <button class="dash-card active" data-panel="about" aria-expanded="true" aria-controls="panel-about" onclick="togglePanel('about')">
       <div class="dash-card-top"><div class="dash-icon"><i class="ti ti-building-store"></i></div><i class="ti ti-chevron-down dash-chevron"></i></div>
       <div class="dash-title">About</div>
       <div class="dash-teaser">Your trusted trade partner — Ethiopian quality meets global demand.</div>
@@ -556,7 +555,7 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
 </section>
 
 <!-- ABOUT -->
-<div class="accordion-panel" id="panel-about">
+<div class="accordion-panel open" id="panel-about">
 <section id="about">
   <div class="sec-label">About RUNA</div>
   <h2 class="sec-title">Your trusted trade partner</h2>
@@ -663,7 +662,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">Hand-picked, sun-dried Ethiopian pinto beans meeting the highest international quality standards.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('Pinto Beans (HPS)')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('Pinto Beans (HPS)')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
@@ -675,7 +673,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">Premium white sesame sourced from Ethiopia's fertile growing regions. Rich in oil content — ideal for food and processing industries.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('White Sesame Seeds')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('White Sesame Seeds')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
@@ -687,7 +684,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">High-quality brown sesame suited for food processing and oil extraction. Selected &amp; polished to premium standards.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('Brown Sesame Seeds')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('Brown Sesame Seeds')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
@@ -699,7 +695,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">Vibrant, firm kidney beans meeting strict HPS grading standards for global food markets.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('Red Kidney Beans (South Type)')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('Red Kidney Beans (South Type)')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
@@ -711,7 +706,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">Small, dense Navy beans selected &amp; polished — ideal for canning, stews, and baked bean production.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('White Pea Beans (Navy Bean)')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('White Pea Beans (Navy Bean)')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
@@ -723,7 +717,6 @@ footer ul li a:hover{color:rgba(255,255,255,.9)}
         <div class="product-desc">Striking speckled kidney beans selected &amp; polished to meet international export standards for size, purity, and moisture.</div>
         <div class="product-cta">
           <button class="btn-card-primary" onclick="openInquiry('Red Speckled Kidney Beans')"><i class="ti ti-send"></i>Request Quote</button>
-          <button class="btn-card-ghost" onclick="openInquiry('Red Speckled Kidney Beans')"><i class="ti ti-info-circle"></i>Details</button>
         </div>
       </div>
     </div>
